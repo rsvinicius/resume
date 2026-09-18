@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+
+%----------FONT OPTIONS----------
+\setmainfont{Charter}[
+  Path = Fonts/,
+  Extension = .otf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-Bold-Italic
+]
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting with horizontal titlerule
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{1pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{-1pt}\item
+    \begin{tabular*}{0.99\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{1pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-1pt}\item
+    \begin{tabular*}{0.99\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{1pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-2pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, nosep]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, nosep]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
+
+% Configure page margins
+\geometry{left=1.2cm, top=1.0cm, right=1.2cm, bottom=0.8cm, footskip=.3cm}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge Vinícius Rodrigues Silva} \\ \vspace{3pt}
+    \small
+    \href{mailto:vrodrigues.code@gmail.com}{\faEnvelope \thinspace \thinspace vrodrigues.code@gmail.com} \quad
+    \href{https://rsvinicius.github.io/portfolio/}{\faGlobe \thinspace \thinspace rsvinicius.github.io/portfolio} \quad
+    \href{https://www.linkedin.com/in/rs-vinicius/}{\faLinkedin \thinspace \thinspace linkedin.com/in/rs-vinicius} \quad
+    \href{https://github.com/rsvinicius}{\faGithub \thinspace \thinspace github.com/rsvinicius}
+\end{center}
+\vspace{-6pt}
+
+% Sections
+\input{sections/en/skills}
+\input{sections/en/experience}
+\input{sections/en/education}
+\input{sections/en/projects}
+
+\end{document}

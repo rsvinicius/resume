@@ -1,0 +1,66 @@
+name: Compile LaTeX CVs to PDF and Commit to Repo
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "*.tex"
+      - "sections/**"
+      - "Fonts/**"
+      - ".github/workflows/compile-latex-to-pdf.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Compile English Resume
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main_en.tex
+          compiler: xelatex
+          args: "-interaction=nonstopmode"
+
+      - name: Compile Portuguese Resume
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main_pt.tex
+          compiler: xelatex
+          args: "-interaction=nonstopmode"
+
+      - name: Get current date
+        run: echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
+
+      - name: Organize PDFs into pdf/ folder
+        run: |
+          mkdir -p pdf
+          # English versions
+          cp main_en.pdf pdf/Vinicius_Silva_Senior_Software_Engineer_CV.pdf
+          cp main_en.pdf pdf/Vinicius_Silva_CV_EN.pdf
+          cp main_en.pdf pdf/RESUME-${{ env.DATE }}-EN.pdf
+          
+          # Portuguese versions
+          cp main_pt.pdf pdf/Vinicius_Silva_CV_PT.pdf
+          cp main_pt.pdf pdf/RESUME-${{ env.DATE }}-PT.pdf
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add pdf/*.pdf
+          git commit -m "Automated update: Compile LaTeX CVs to PDF [skip ci]" || exit 0
+          git push origin HEAD:main

@@ -1,0 +1,17 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# Temporary root PDFs (official ones are committed under pdf/)
+main.pdf
+main_en.pdf
+main_pt.pdf
+
+# Previews & temp files
+*preview*
+.DS_Store
