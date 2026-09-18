@@ -44,7 +44,6 @@ jobs:
         run: |
           mkdir -p pdf
           # English versions
-          cp main_en.pdf pdf/Vinicius_Silva_Senior_Software_Engineer_CV.pdf
           cp main_en.pdf pdf/Vinicius_Silva_CV_EN.pdf
           cp main_en.pdf pdf/RESUME-${{ env.DATE }}-EN.pdf
           

@@ -26,8 +26,7 @@ resume/
 ├── Images/                       # Icons and logos
 ├── pdf/                          # Compiled production PDFs (EN & PT-BR)
 │   ├── Vinicius_Silva_CV_EN.pdf
-│   ├── Vinicius_Silva_CV_PT.pdf
-│   └── Vinicius_Silva_Senior_Software_Engineer_CV.pdf
+│   └── Vinicius_Silva_CV_PT.pdf
 ├── sections/
 │   ├── en/                       # English sections (Skills, Experience, Education, Projects)
 │   └── pt/                       # Portuguese sections (Habilidades, Experiência, etc.)
